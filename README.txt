@@ -48,3 +48,27 @@ no aparecia.
 
 - Pero ahora a aparecido un nuevo error que es la pestaña de "Eventos" Tambien
 aparece en la pestaña "Inicio" eso se solucionara para la siguiente entrega
+
+
+//Actualizacion de correcion errores//
+
+Para arreglar el error de que las pestañas aparecen de forma acumulativa lo que
+hice fue crear una nueva clase copiada de seccion, y añadirlas en la parte
+de section, y despues en cada section cree un "div" y a los div le di la 
+clase inicial que tenian para que no perdieran los estilos que ya se
+tenian.
+
+//Actualizacion agregada//
+
+Seccion "Torneos" ya da funcionalidad tanto de forma visual como Para
+que los usuarios puedan crear torneos de manera de formulario basico
+Titulo:
+Creador: (Automatico)
+Tipo: (Individual / Equipo)
+Categoria: (General / Facultad / Carrera / Ciclo)
+Fecha:
+Hora:
+Lugar: (Lista por añadir)
+
+Y ademas facilidad de acceso al inscribirse al Torneo 
+Ademas se mejoro de forma visual los botones.

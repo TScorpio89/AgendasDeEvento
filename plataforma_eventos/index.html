@@ -31,8 +31,8 @@
             
         </section>
 
-        <section id="eventos" class="seccion">
-            <div>
+        <section id="eventos" class="s visible">
+            <div class="seccion visible">
                 <h2>Eventos</h2>
                 <div class="evento">
                     <img src="assets/ar.png" alt="Evento 1">
@@ -54,17 +54,75 @@
             </div>
         </section>
 
-        <section id="torneos" class="seccion">
-            <h2>Torneos</h2>
-            <p>Aquí gestionas torneos.</p>
+        <section id="torneos" class="s visible">
+            <div class="seccion visible">
+                <h2>Torneos</h2>
+                <button id="btn-agregar-torneo" class="btn-agregar">+</button>
+                
+                <div id="formulario-torneo" class="formulario oculto">
+                    <h3>Agregar Torneo</h3>
+                    <form id="crear-torneo-form">
+                        <label>Titulo del Torneo:<br>
+                            <input type="text" name="titulo" required>
+                        </label><br>
+                        <input type="text" id="creadorTorneo" placeholder="Creador" readonly>
+                        <label>Tipo<br>
+                            <select name="tipo" required>
+                                <option value="Individual">Individual</option>
+                                <option value="Equipo">Equipo</option>
+                            </select>
+                        </label><br>
+                        <label>Categoria:<br>
+                            <select name="categoria" required>
+                                <option value="General">General</option>
+                                <option value="Facultad">Facultad</option>
+                                <option value="Carrera">Carrera</option>
+                                <option value="Ciclo">Ciclo</option>
+                            </select>
+                        </label><br>
+                        <label>Fecha:<br>
+                            <input type="date" name="fecha" required>
+                        </label><br>
+                        <label>Hora:<br>
+                            <input type="time" name="hora" required>
+                        </label><br>
+                        <label>Lugar:<br>
+                            <select name="lugar" required>
+                                <option value="Auditorio">Auditorio</option>
+                                <option value="Sala de Conferencias">Sala de Conferencias</option>
+                                <option value="Campo Deportivo">Campo Deportivo</option>
+                            </select>
+                        </label><br>
+                        <button type="submit">Crear Torneo</button>
+                    </form>
+                </div>
+                <hr class="linea-separadora">
+                <div id="lista-torneos">    </div>
+            </div>
         </section>
 
-        <section id="login" class="seccion">
-            <h2>Login</h2>
-            <p>Formulario de acceso (por implementar).</p>
+        <section id="login" class="s visible">
+            <div class="seccion visible">
+                <h2>Login</h2>
+                <p>Formulario de acceso (por implementar).</p>
+            </div>
         </section>
     </main>
 
     <script src="script.js"></script> 
+    <script>
+        function actualizarBotonTorneo() {
+        const seccionTorneos = document.getElementById('torneos');
+        const boton = document.getElementById('btn-agregar-torneo');
+        if (seccionTorneos.classList.contains('visible')) {
+            boton.style.display = 'block';
+        } else {
+            boton.style.display = 'none';
+        }
+    }
+
+    // Llama esta función cada vez que cambias de sección:
+    actualizarBotonTorneo();
+    </script>
 </body>
 </html>

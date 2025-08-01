@@ -239,16 +239,6 @@ linea gris*/
   position: relative;
 }
 
-.btn-inscribirse {
-  align-self: flex-end;
-  margin-top: auto;
-  background-color: #f1860d;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
 
 .linea-separadora {
   border: none;
@@ -266,4 +256,70 @@ linea gris*/
 
 .evento-inscrito p {
   margin-top: 0;
+}
+
+
+/* Estilos para la sección de torneos */
+/* Botón flotante naranja con símbolo + */
+.btn-agregar {
+    background-color: #f1860d;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* Formulario oculto inicialmente */
+.formulario.oculto {
+    display: none;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.linea-separadora {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+#btn-agregar-torneo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f1860d;
+    color: white;
+    font-size: 32px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+#btn-agregar-torneo:hover {
+    background-color: #e69500;
+}
+.btn-inscribirse {
+    background-color: #f1860d;
+    color: white;
+    align-self: flex-end;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-inscribirse:hover {
+    background-color: #e65c00;
 }
