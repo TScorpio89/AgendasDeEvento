@@ -323,3 +323,53 @@ linea gris*/
 .btn-inscribirse:hover {
     background-color: #e65c00;
 }
+
+.btn-eliminar-inscripcion {
+  background-color: #c0392b;
+  color: white;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-eliminar-inscripcion:hover {
+  background-color: #e74c3c;
+}
+
+.filtro-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.filtro-container label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.filtro-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 15px;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.filtro-select:hover {
+  border-color: #666;
+}
+
+.filtro-select:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+

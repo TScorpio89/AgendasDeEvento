@@ -72,3 +72,30 @@ Lugar: (Lista por añadir)
 
 Y ademas facilidad de acceso al inscribirse al Torneo 
 Ademas se mejoro de forma visual los botones.
+
+
+============================================================================
+
+                    Reconocimientos y Mejoras
+
+============================================================================
+
+//Reconocimientos de errores//
+Visualise que en un eventos se podrian inscribir varias veces, asi que
+esta version se encargara de evitar inscripcion duplicada a eventos/torneos
+
+//Ideas para mejorar//
+Añadire un boton para eliminar inscripcion o torneos
+Filtrar torneos por Categoria o Tipo
+Cambiar nombre del creador dinamicamente desde el login
+
+============================================================================
+
+
+============================================================================
+
+Se reparo el error y ademas se añadio un filtrador en la parte de
+"Torneos" para que se pueda localizar torneos de la preferencia.
+
+Este seria la actualizacion de "Reconocimientos"
+============================================================================

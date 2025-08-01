@@ -58,7 +58,18 @@
             <div class="seccion visible">
                 <h2>Torneos</h2>
                 <button id="btn-agregar-torneo" class="btn-agregar">+</button>
-                
+                <div class="filtro-container">
+                    <label for="filtro-categoria">Categoría:</label>
+                    <select id="filtro-categoria" class="filtro-select">
+                        <option value="">Todos</option>
+                        <option value="General">General</option>
+                        <option value="Facultad">Facultad</option>
+                        <option value="Carrera">Carrera</option>
+                        <option value="Ciclo">Ciclo</option>
+                    </select>
+                </div>
+
+
                 <div id="formulario-torneo" class="formulario oculto">
                     <h3>Agregar Torneo</h3>
                     <form id="crear-torneo-form">
