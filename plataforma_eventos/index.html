@@ -2,11 +2,43 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Plataforma de Eventos y Torneos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Bienvenido a Cup Event</h1>
-    <p>Este es un proyecto de ejemplo.</p>
+    <header>
+        <img src="assets/logoucsur.png" alt="Logo de la Plataforma" class="logo">
+    </header>
+
+    <div class="botonera">
+            <button onclick="mostrar('inicio')">Inicio</button>
+            <button onclick="mostrar('eventos')">Eventos</button>
+            <button onclick="mostrar('torneos')">Torneos</button>
+            <button onclick="mostrar('login')">Login</button>
+    </div>
+
+    <main>
+        <section id="inicio" class="seccion visible">
+            <h2>Bienvenido</h2>
+            <p>Aquí irá información general.</p>
+        </section>
+
+        <section id="eventos" class="seccion">
+            <h2>Eventos</h2>
+            <p>Aquí podrás ver y crear eventos.</p>
+        </section>
+
+        <section id="torneos" class="seccion">
+            <h2>Torneos</h2>
+            <p>Aquí gestionas torneos.</p>
+        </section>
+
+        <section id="login" class="seccion">
+            <h2>Login</h2>
+            <p>Formulario de acceso (por implementar).</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script> 
 </body>
 </html>

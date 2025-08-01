@@ -19,3 +19,14 @@ Mi primera estructura del proyecto sera {
     - script.js     (Interacciones basicas)
     - assets/       (Imagenes o iconos)
 }
+
+
+Elegimmos los colores:
+Para la parte superior sera el color #22468f
+El fondo sera de color #eef2f8
+Y Los cuadros de textos seran de color #ffffff
+
+Agregamos el logo de la universidad y ademas hicimos que los botones
+muestren un pequeño texto al clickearles. 
+
+//Este seria el primer avance para la primera version Visual//

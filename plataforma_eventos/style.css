@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #eef2f8;
+}
+
+header {
+    background-color: #22468f;
+    color: white;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li button {
+    background-color: white;
+    color: #1e90ff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+nav ul li button:hover {
+    background-color: #ddd;
+}
+
+.seccion {
+    display: none;
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.visible {
+    display: block;
+}
+
+.botonera {
+    padding: 20px;       /* Espacio interior */
+    margin: 20px;        /* Espacio hacia afuera, alrededor */
+    text-align: center;  /* Centra los botones si quieres */
+}
+
+.botonera button {
+    margin: 0 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #22468f;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.botonera button:hover {
+    background-color: #1a3570;
+}
+header {
+    background-color: #22468f;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;   /* Centra verticalmente */
+}
+
+.logo {
+    height: 95px;  /* Ajusta el tamaño de la imagen */
+}
