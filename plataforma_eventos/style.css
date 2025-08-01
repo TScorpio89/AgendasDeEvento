@@ -30,6 +30,9 @@ nav ul li button:hover {
     background-color: #ddd;
 }
 
+.s{
+    display:none;
+}
 .seccion {
     display: none;
     padding: 20px;
@@ -71,4 +74,196 @@ header {
 
 .logo {
     height: 95px;  /* Ajusta el tamaño de la imagen */
+}
+
+/* Estilos para el footer */
+
+form label {
+    display: block;
+    margin: 8px 0;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #22468f;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #1a3570;
+}
+
+/* Separamos Los eventos en nubes para que sea mejor visualizar */
+.nube{
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: fit-content;
+    max-width: 90%;
+    text-align: center;
+}
+
+.contenedor-eventos-principal {
+    position: relative;
+    background-color: #ffffff;
+    padding: 40px 20px 20px 20px;
+    margin: 20px auto;
+    border-radius: 20px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nube-titulo {
+    position: absolute;
+    background-color: #ffffff;
+    color: #22468f;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 30px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    font-size: 18px;
+}
+
+.tarjeta-evento {
+    background-color: #e1ecf4;        /* Fondo celeste suave tipo nube */
+    border-radius: 30px;              /* Más redondeado = más nube */
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 280px;
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+/* Yo queria que la parte de eventos aparezca como una nube 
+por ello hare una nueva clase para que se pueda apreciar mejor el
+titulo y aparte agregar que los eventos salga por separado por una
+linea gris*/
+
+.nube-titulo-eventos {
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding: 10px 20px;
+  width: fit-content;
+  margin: 20px 40px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nube-lista-eventos {
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 0 40px 40px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.evento {
+  padding: 10px 0;
+  border-bottom: 1px solid #ffffff; 
+}
+
+.evento:last-child {
+  border-bottom: none;
+}
+
+#formulario-evento input {
+  margin: 5px 0;
+  padding: 8px;
+  width: 90%;
+  max-width: 400px;
+}
+
+#formulario-evento button {
+  padding: 8px 16px;
+  background-color: #48a9e6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#formulario-evento button:hover {
+  background-color: #2b8bc6;
+}
+
+.nube-eventos {
+  background-color: #f0f8ff;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.evento {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.evento img {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.descripcion {
+  flex: 1;
+}
+
+.linea-separadora {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 15px 0;
+}
+.contenido-evento {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  position: relative;
+}
+
+.btn-inscribirse {
+  align-self: flex-end;
+  margin-top: auto;
+  background-color: #f1860d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.linea-separadora {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.eventos-inscritos {
+  margin-top: 30px;
+}
+
+.evento-inscrito h4 {
+  margin-bottom: 5px;
+}
+
+.evento-inscrito p {
+  margin-top: 0;
 }

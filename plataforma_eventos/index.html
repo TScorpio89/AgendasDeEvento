@@ -18,14 +18,40 @@
     </div>
 
     <main>
-        <section id="inicio" class="seccion visible">
-            <h2>Bienvenido</h2>
-            <p>Aquí irá información general.</p>
+        <section id="inicio" class="s visible">
+            <div class="seccion visible bloque-inicio">
+                <h1>Bienvenido, Licht</h1>
+                <p>Carrera: Ingieneria de Software</p>
+                <p>Codigo: 100---</p>
+            </div>
+            <div class="seccion visible bloque-inicio eventos-inscritos">
+                <h3>Eventos Inscritos</h3>
+                <div id="lista-inscritos"></div>
+            </div>
+            
         </section>
 
         <section id="eventos" class="seccion">
-            <h2>Eventos</h2>
-            <p>Aquí podrás ver y crear eventos.</p>
+            <div>
+                <h2>Eventos</h2>
+                <div class="evento">
+                    <img src="assets/ar.png" alt="Evento 1">
+                    <div class="contenido-evento">
+                        <h3>Nombre del Evento</h3>
+                        <p>Descripción del evento 1.</p>
+                        <button class="btn-inscribirse" data-nombre="Nombre del Evento 1">Inscribirse</button>
+                    </div>
+                </div>
+                <hr class="linea-separadora">
+                <div class="evento">
+                    <img src="assets/ar.png" alt="Evento 2">
+                    <div class="contenido-evento">
+                        <h3>Nombre del Evento</h3>
+                        <p>Descripción del evento 2.</p>
+                        <button class="btn-inscribirse" data-nombre="Nombre del Evento 2">Inscribirse</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="torneos" class="seccion">
