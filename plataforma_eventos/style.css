@@ -569,3 +569,15 @@ linea gris*/
 .cerrar:hover {
   background-color: #c0392b;
 }
+
+.formulario-torneo-contenedor {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.formulario-torneo-contenedor .modal-contenido {
+    background-color: #fff; /* o el color neutro que quieras */
+    padding: 20px;
+    border-radius: 8px;
+}
