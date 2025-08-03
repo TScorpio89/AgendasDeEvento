@@ -231,12 +231,10 @@ linea gris*/
   border-top: 1px solid #ccc;
   margin: 15px 0;
 }
-.contenido-evento {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex: 1;
-  position: relative;
+.contenido-evento p {
+    margin: 8px 0;
+    line-height: 1.5;
+    font-size: 15px;
 }
 
 
@@ -372,4 +370,89 @@ linea gris*/
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+/* Estilo general del formulario */
+#formulario-torneo {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
+/* Etiquetas del formulario */
+#formulario-torneo label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 4px;
+    color: #333;
+}
+
+/* Inputs, selects y textarea */
+#formulario-torneo input[type="text"],
+#formulario-torneo input[type="date"],
+#formulario-torneo input[type="time"],
+#formulario-torneo input[type="file"],
+#formulario-torneo select,
+#formulario-torneo textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+/* Botón de crear torneo */
+#formulario-torneo button[type="submit"] {
+    background-color: #e65c00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#formulario-torneo button[type="submit"]:hover {
+    background-color: #e74c3c;
+}
+
+.tabla-torneos img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.imagen-torneo {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 12px;
+}
+
+.descripcion-limitada {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ver-mas-btn {
+  color: rgb(16, 76, 167);
+  cursor: pointer;
+  font-size: 0.9em;
+  display: inline-block;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.creditos {
+  background-color: transparent;
+  color: #666;
+  font-size: 13px;
+  text-align: center;
+  padding: 15px 10px;
+}

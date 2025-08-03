@@ -99,3 +99,19 @@ Se reparo el error y ademas se añadio un filtrador en la parte de
 
 Este seria la actualizacion de "Reconocimientos"
 ============================================================================
+
+
+============================================================================
+
+                    Reconocimientos y Mejoras V2
+
+============================================================================
+
+Ahora mejoraremos las interfaces de los cuadros, para que muestren caracteres
+limitadas, y que aparezca pasando de ese limite un dialogo para ver todo el contenido
+con un click en "Ver mas..."
+Ademas tambien mejoraremos el tipo de texto que se muestra en general.
+Y por ultimo agregaremos los al final el autor y año de actualizaciones.
+
+
+============================================================================

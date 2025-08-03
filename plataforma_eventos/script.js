@@ -30,49 +30,79 @@ document.getElementById('btn-agregar-torneo').addEventListener('click', () => {
 // Crear torneo dinámicamente
 document.getElementById('crear-torneo-form').addEventListener('submit', function (e) {
     e.preventDefault();
-
     const data = new FormData(this);
-    const torneo = {
-        titulo: data.get('titulo'),
-        creador: data.get('creador'),
-        tipo: data.get('tipo'),
-        categoria: data.get('categoria'),
-        fecha: data.get('fecha'),
-        lugar: data.get('lugar'),
+
+    const archivoImagen = data.get('imagen');
+    const lector = new FileReader();
+
+    lector.onload = function () {
+        const imagenBase64 = archivoImagen && archivoImagen.name ? lector.result : null;
+
+        const torneo = {
+            titulo: data.get('titulo'),
+            creador: data.get('creador'),
+            tipo: data.get('tipo'),
+            categoria: data.get('categoria'),
+            fecha: data.get('fecha'),
+            hora: data.get('hora'),
+            lugar: data.get('lugar'),
+            descripcion: data.get('descripcion'),
+            imagen: imagenBase64,
+        };
+
+        const div = document.createElement('div');
+        div.classList.add('torneo-creado');
+        div.innerHTML = `
+            <div class="evento torneo">
+                ${torneo.imagen 
+                    ? `<img src="${torneo.imagen}" alt="Imagen del Torneo" class="imagen-torneo">` 
+                    : `<img src="assets/anonimo.png" alt="Sin Imagen" class="imagen-torneo">`}
+                <div class="contenido-evento">
+                <h3>${torneo.titulo}</h3>
+                <p><strong>Creador:</strong> ${torneo.creador}</p>
+                <p><strong>Tipo:</strong> ${torneo.tipo}</p>
+                <p><strong>Categoría:</strong> ${torneo.categoria}</p>
+                <p><strong>Fecha:</strong> ${torneo.fecha} - ${torneo.hora}</p>
+                <p><strong>Lugar:</strong> ${torneo.lugar}</p>
+                <div class="descripcion-torneo">
+                    <strong>Descripción:</strong>
+                    <p class="descripcion-texto descripcion-limitada">${torneo.descripcion}</p>
+                    <span class="ver-mas-btn">Ver más...</span>
+                </div>
+
+                <div style="text-align: right;">
+                    <button class="btn-inscribirse" 
+                            data-nombre="${torneo.titulo}" 
+                            data-descripcion="${torneo.descripcion}">
+                        Inscribirse
+                    </button>
+                </div>
+                </div>
+            </div>
+            <hr class="linea-separadora">
+        `;
+
+        const boton = div.querySelector('.btn-inscribirse');
+        boton.addEventListener('click', inscribirseEventoHandler);
+
+        document.getElementById('lista-torneos').appendChild(div);
+        guardarTorneosEnStorage(); // Importante
+        document.getElementById('crear-torneo-form').reset();
+        document.getElementById('formulario-torneo').classList.add('oculto');
     };
 
-    const div = document.createElement('div');
-    div.classList.add('torneo-creado');
-    div.innerHTML = `
-      <h3>${torneo.titulo}</h3>
-      <p><strong>Creador:</strong> ${torneo.creador}</p>
-      <p><strong>Tipo:</strong> ${torneo.tipo}</p>
-      <p><strong>Categoría:</strong> ${torneo.categoria}</p>
-      <p><strong>Fecha:</strong> ${torneo.fecha}</p>
-      <p><strong>Lugar:</strong> ${torneo.lugar}</p>
-      <div style="text-align: right;">
-          <button class="btn-inscribirse" data-nombre="${torneo.titulo}" data-descripcion="Torneo de tipo ${torneo.tipo}, categoría ${torneo.categoria}">
-              Inscribirse
-          </button>
-      </div>
-      <hr class="linea-separadora">
-      `;
-
-
-    // Asignar evento al botón nuevo
-    const boton = div.querySelector('.btn-inscribirse');
-    boton.addEventListener('click', inscribirseEventoHandler);
-
-
-    document.getElementById('lista-torneos').appendChild(div);
-    this.reset();
-    document.getElementById('formulario-torneo').classList.add('oculto');
+    if (archivoImagen && archivoImagen.name) {
+        lector.readAsDataURL(archivoImagen);
+    } else {
+        lector.onload(); // Ejecuta de inmediato si no hay imagen
+    }
 });
 
-function guardarTorneosEnStorage() {
-    const torneosHTML = document.getElementById('lista-torneos').innerHTML;
-    localStorage.setItem('torneosHTML', torneosHTML);
-}
+
+//function guardarTorneosEnStorage() {
+//    const torneosHTML = document.getElementById('lista-torneos').innerHTML;
+//    localStorage.setItem('torneosHTML', torneosHTML);
+//}
 
 function cargarTorneosDesdeStorage() {
     const html = localStorage.getItem('torneosHTML');
@@ -181,5 +211,43 @@ document.getElementById('filtro-categoria').addEventListener('change', function 
     });
 });
 
+const descripcionInput = document.getElementById('descripcion');
+const contador = document.getElementById('contador');
 
+descripcionInput.addEventListener('input', () => {
+    const longitud = descripcionInput.value.length;
+    contador.textContent = `${longitud} / 750`;
+});
+
+const inputImagen = document.querySelector('input[name="imagen"]');
+const previewImagen = document.getElementById('preview-imagen');
+
+inputImagen.addEventListener('change', function () {
+    const archivo = this.files[0];
+    if (archivo) {
+        const lector = new FileReader();
+        lector.onload = function (e) {
+            previewImagen.src = e.target.result;
+            previewImagen.style.display = 'block';
+        };
+        lector.readAsDataURL(archivo);
+    } else {
+        previewImagen.style.display = 'none';
+    }
+});
+
+document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("ver-mas-btn")) {
+        const btn = e.target;
+        const descripcion = btn.previousElementSibling;
+
+        if (descripcion.classList.contains("descripcion-limitada")) {
+            descripcion.classList.remove("descripcion-limitada");
+            btn.textContent = "Ver menos...";
+        } else {
+            descripcion.classList.add("descripcion-limitada");
+            btn.textContent = "Ver más...";
+        }
+    }
+});
 

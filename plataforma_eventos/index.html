@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <img src="assets/logoucsur.png" alt="Logo de la Plataforma" class="logo">
+        <img src="assets/signo.png" alt="Logo de la Plataforma" class="logo">
     </header>
 
     <div class="botonera">
@@ -104,11 +104,24 @@
                                 <option value="Campo Deportivo">Campo Deportivo</option>
                             </select>
                         </label><br>
+                        <label for="descripcion">Descripción:<br>
+                            <textarea id="descripcion" name="descripcion" maxlength="1000" rows="4" placeholder="Describe el torneo..." required></textarea>
+                            <small id="contador">0 / 1000</small>
+                        </label><br>
+
+                        <label>Imagen (opcional):<br>
+                            <input type="file" name="imagen" accept="image/*">
+                            <div id="preview-container" style="margin-top: 10px;">
+                                <img id="preview-image" src="" alt="Vista previa" class="preview-image">
+
+                            </div>
+                        </label><br>
                         <button type="submit">Crear Torneo</button>
                     </form>
                 </div>
                 <hr class="linea-separadora">
                 <div id="lista-torneos">    </div>
+                
             </div>
         </section>
 
@@ -135,5 +148,9 @@
     // Llama esta función cada vez que cambias de sección:
     actualizarBotonTorneo();
     </script>
+    <footer class="creditos">
+        <p>© 2025 Plataforma de Eventos Universitarios. Creado por Licht.</p>
+    </footer>
+
 </body>
 </html>
