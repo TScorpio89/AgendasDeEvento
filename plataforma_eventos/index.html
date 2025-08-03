@@ -70,67 +70,70 @@
                 </div>
 
 
-                <div id="formulario-torneo" class="formulario oculto">
-                    <h3>Agregar Torneo</h3>
-                    <form id="crear-torneo-form">
-                        <label>Titulo del Torneo:<br>
-                            <input type="text" name="titulo" required>
-                        </label><br>
-                        <input type="text" id="creadorTorneo" placeholder="Creador" readonly>
-                        <label>Tipo<br>
-                            <select name="tipo" required>
-                                <option value="Individual">Individual</option>
-                                <option value="Equipo">Equipo</option>
-                            </select>
-                        </label><br>
-                        <label>Categoria:<br>
-                            <select name="categoria" required>
-                                <option value="General">General</option>
-                                <option value="Facultad">Facultad</option>
-                                <option value="Carrera">Carrera</option>
-                                <option value="Ciclo">Ciclo</option>
-                            </select>
-                        </label><br>
-                        <label>Fecha:<br>
-                            <input type="date" name="fecha" required>
-                        </label><br>
-                        <label>Hora:<br>
-                            <input type="time" name="hora" required>
-                        </label><br>
-                        <label>Lugar:<br>
-                            <select name="lugar" required>
-                                <option value="Auditorio">Auditorio</option>
-                                <option value="Sala de Conferencias">Sala de Conferencias</option>
-                                <option value="Campo Deportivo">Campo Deportivo</option>
-                            </select>
-                        </label><br>
-                        <div class="checkbox-custom">
-                            <label>
-                                <input type="checkbox" id="habilitarCapacidad">
-                                <span class="checkmark"></span>
-                                ¿Capacidad maxima?
-                            </label>
-                        </div>
-                        <label id="campoCapacidad" style="display: none;">Capacidad maxima:<br>
-                            <input type="number" name="capacidad" min="1">
-                        </label><br>
-                        <label for="descripcion">Descripción:<br>
-                            <textarea id="descripcion" name="descripcion" maxlength="1000" rows="4" placeholder="Describe el torneo..." required></textarea>
-                            <small id="contador">0 / 1000</small>
-                        </label><br>
-
-                        <label>Imagen (opcional):<br>
-                            <input type="file" name="imagen" accept="image/*">
-                            <div id="preview-container" style="margin-top: 10px;">
-                                <img id="preview-image" src="" alt="Vista previa" class="preview-image">
-
+                <div id="formulario-torneo" class="modal oculto">
+                    <div class="modal-contenido">
+                        <span class="cerrar" onclick="cerrarFormulario()">x</span>
+                        <h3>Agregar Torneo</h3>
+                        <form id="crear-torneo-form">
+                            <label>Titulo del Torneo:<br>
+                                <input type="text" name="titulo" required>
+                            </label><br>
+                            <input type="text" id="creadorTorneo" placeholder="Creador" readonly>
+                            <label>Tipo<br>
+                                <select name="tipo" required>
+                                    <option value="Individual">Individual</option>
+                                    <option value="Equipo">Equipo</option>
+                                </select>
+                            </label><br>
+                            <label>Categoria:<br>
+                                <select name="categoria" required>
+                                    <option value="General">General</option>
+                                    <option value="Facultad">Facultad</option>
+                                    <option value="Carrera">Carrera</option>
+                                    <option value="Ciclo">Ciclo</option>
+                                </select>
+                            </label><br>
+                            <label>Fecha:<br>
+                                <input type="date" name="fecha" required>
+                            </label><br>
+                            <label>Hora:<br>
+                                <input type="time" name="hora" required>
+                            </label><br>
+                            <label>Lugar:<br>
+                                <select name="lugar" required>
+                                    <option value="Auditorio">Auditorio</option>
+                                    <option value="Sala de Conferencias">Sala de Conferencias</option>
+                                    <option value="Campo Deportivo">Campo Deportivo</option>
+                                </select>
+                            </label><br>
+                            <div class="checkbox-custom">
+                                <label>
+                                    <input type="checkbox" id="habilitarCapacidad">
+                                    <span class="checkmark"></span>
+                                    ¿Capacidad maxima?
+                                </label>
                             </div>
-                        </label><br>
-                        <button type="submit">Crear Torneo</button>
-                    </form>
+                            <label id="campoCapacidad" style="display: none;">Capacidad maxima:<br>
+                                <input type="number" name="capacidad" min="1">
+                            </label><br>
+                            <label for="descripcion">Descripción:<br>
+                                <textarea id="descripcion" name="descripcion" maxlength="1000" rows="4" placeholder="Describe el torneo..." required></textarea>
+                                <small id="contador">0 / 1000</small>
+                            </label><br>
+
+                            <label>Imagen (opcional):<br>
+                                <input type="file" name="imagen" accept="image/*">
+                                <div id="preview-container" style="margin-top: 10px;">
+                                    <img id="preview-image" src="" alt="Vista previa" class="preview-image">
+
+                                </div>
+                            </label><br>
+                            <button type="submit">Crear Torneo</button>
+                        </form>
+                    </div>
                 </div>
                 <hr class="linea-separadora">
-                <div id="lista-torneos">    </div>
+                <div id="lista-torneos">  </div>
                 
             </div>
         </section>

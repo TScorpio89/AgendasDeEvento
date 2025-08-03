@@ -23,8 +23,7 @@ document.querySelectorAll('.btn-inscribirse').forEach(boton => {
 
   // Mostrar / ocultar el formulario de creación
 document.getElementById('btn-agregar-torneo').addEventListener('click', () => {
-    const form = document.getElementById('formulario-torneo');
-    form.classList.toggle('oculto');
+  document.getElementById('formulario-torneo').classList.remove('oculto');
 });
 
 // Crear torneo dinámicamente
@@ -305,4 +304,21 @@ document.addEventListener("click", function(e) {
             btn.textContent = "Ver más...";
         }
     }
+});
+function abrirFormulario() {
+  document.getElementById('formulario-torneo').classList.remove('oculto');
+}
+
+function cerrarFormulario() {
+    const modal = document.getElementById('formulario-torneo');
+    modal.classList.add('oculto');
+}
+
+// Cerrar automáticamente al crear torneo
+document.getElementById('crear-torneo-form').addEventListener('submit', function (e) {
+  e.preventDefault(); // prevenir el envío por defecto si no quieres recargar
+  // Aquí haces tu lógica de creación del torneo...
+
+  // Luego cierras el modal
+  cerrarFormulario();
 });

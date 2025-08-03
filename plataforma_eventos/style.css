@@ -272,9 +272,7 @@ linea gris*/
 }
 
 /* Formulario oculto inicialmente */
-.oculto {
-  display: none;
-}
+
 .formulario.oculto {
     display: none;
     margin-bottom: 20px;
@@ -503,4 +501,71 @@ linea gris*/
 
 .checkbox-custom input[type="checkbox"]:checked + .checkmark::after {
     display: block;
+}
+
+/* Fondo oscuro semitransparente */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.3); /* gris semitransparente */
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+}
+
+/* Contenido del modal */
+.modal-contenido {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 50vh; /* Limita la altura al 90% de la pantalla */
+  overflow-y: auto;  /* Agrega scroll si hay mucho contenido */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: right;
+}
+
+/* Botón de cerrar (X) */
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+}
+
+/* Oculto por defecto */
+.oculto {
+  display: none;
+}
+.cerrar {
+  position: relative;
+  top: 10px;       /* Puedes ajustar esto para bajarla */
+  left: 450px;
+  width: 45px;
+  height: 45px;
+  background-color: #e74c3c; /* Rojo intenso */
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.cerrar:hover {
+  background-color: #c0392b;
 }
