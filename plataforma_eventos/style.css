@@ -272,6 +272,9 @@ linea gris*/
 }
 
 /* Formulario oculto inicialmente */
+.oculto {
+  display: none;
+}
 .formulario.oculto {
     display: none;
     margin-bottom: 20px;
@@ -455,4 +458,49 @@ linea gris*/
   font-size: 13px;
   text-align: center;
   padding: 15px 10px;
+}
+
+
+.checkbox-custom {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-custom input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-custom .checkmark {
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox-custom input[type="checkbox"]:checked + .checkmark {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.checkbox-custom .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-custom input[type="checkbox"]:checked + .checkmark::after {
+    display: block;
 }

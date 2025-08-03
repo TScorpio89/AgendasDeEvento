@@ -104,6 +104,16 @@
                                 <option value="Campo Deportivo">Campo Deportivo</option>
                             </select>
                         </label><br>
+                        <div class="checkbox-custom">
+                            <label>
+                                <input type="checkbox" id="habilitarCapacidad">
+                                <span class="checkmark"></span>
+                                ¿Capacidad maxima?
+                            </label>
+                        </div>
+                        <label id="campoCapacidad" style="display: none;">Capacidad maxima:<br>
+                            <input type="number" name="capacidad" min="1">
+                        </label><br>
                         <label for="descripcion">Descripción:<br>
                             <textarea id="descripcion" name="descripcion" maxlength="1000" rows="4" placeholder="Describe el torneo..." required></textarea>
                             <small id="contador">0 / 1000</small>

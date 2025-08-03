@@ -28,6 +28,7 @@ document.getElementById('btn-agregar-torneo').addEventListener('click', () => {
 });
 
 // Crear torneo dinámicamente
+const checkboxCapacidad = document.getElementById('habilitarCapacidad');
 document.getElementById('crear-torneo-form').addEventListener('submit', function (e) {
     e.preventDefault();
     const data = new FormData(this);
@@ -35,9 +36,8 @@ document.getElementById('crear-torneo-form').addEventListener('submit', function
     const archivoImagen = data.get('imagen');
     const lector = new FileReader();
 
-    lector.onload = function () {
-        const imagenBase64 = archivoImagen && archivoImagen.name ? lector.result : null;
 
+    function crearTorneo(imagenBase64) {
         const torneo = {
             titulo: data.get('titulo'),
             creador: data.get('creador'),
@@ -47,6 +47,8 @@ document.getElementById('crear-torneo-form').addEventListener('submit', function
             hora: data.get('hora'),
             lugar: data.get('lugar'),
             descripcion: data.get('descripcion'),
+            capacidad: checkboxCapacidad.checked ? parseInt(data.get('capacidad')) : null,
+            inscritos: 0,
             imagen: imagenBase64,
         };
 
@@ -69,7 +71,7 @@ document.getElementById('crear-torneo-form').addEventListener('submit', function
                     <p class="descripcion-texto descripcion-limitada">${torneo.descripcion}</p>
                     <span class="ver-mas-btn">Ver más...</span>
                 </div>
-
+                ${torneo.capacidad ? `<p><strong>Capacidad:</strong> <span class="contador-inscritos" data-titulo="${torneo.titulo}">0/${torneo.capacidad}</span></p>` : ''}
                 <div style="text-align: right;">
                     <button class="btn-inscribirse" 
                             data-nombre="${torneo.titulo}" 
@@ -86,17 +88,21 @@ document.getElementById('crear-torneo-form').addEventListener('submit', function
         boton.addEventListener('click', inscribirseEventoHandler);
 
         document.getElementById('lista-torneos').appendChild(div);
-        guardarTorneosEnStorage(); // Importante
+        guardarTorneosEnStorage();
         document.getElementById('crear-torneo-form').reset();
         document.getElementById('formulario-torneo').classList.add('oculto');
-    };
+    }
 
     if (archivoImagen && archivoImagen.name) {
+        lector.onload = function () {
+            crearTorneo(lector.result);
+        };
         lector.readAsDataURL(archivoImagen);
     } else {
-        lector.onload(); // Ejecuta de inmediato si no hay imagen
+        crearTorneo(null); // No hay imagen, se crea directamente
     }
 });
+
 
 
 //function guardarTorneosEnStorage() {
@@ -151,11 +157,49 @@ function cargarInscripciones() {
 document.addEventListener('DOMContentLoaded', () => {
     cargarTorneosDesdeStorage();
     cargarInscripciones();
+
+    // Validación de fecha
+    const fechaInput = document.querySelector('input[name="fecha"]');
+    const hoy = new Date();
+    hoy.setDate(hoy.getDate() + 7);
+    const yyyy = hoy.getFullYear();
+    const mm = String(hoy.getMonth() + 1).padStart(2, '0');
+    const dd = String(hoy.getDate()).padStart(2, '0');
+    const fechaMinima = `${yyyy}-${mm}-${dd}`;
+    fechaInput.min = fechaMinima;
+
+    fechaInput.addEventListener('input', () => {
+        const [a, m, d] = fechaInput.value.split('-').map(Number);
+        const fechaSeleccionada = new Date(a, m - 1, d); // año, mes (0-11), día
+        if (fechaSeleccionada.getDay() === 0) {
+            alert("No se pueden crear eventos los domingos.");
+            fechaInput.value = '';
+        }
+    });
+    const checkboxCapacidad = document.getElementById('habilitarCapacidad');
+    const campoCapacidad = document.getElementById('campoCapacidad');
+
+    checkboxCapacidad.addEventListener('change', () => {
+        campoCapacidad.style.display = checkboxCapacidad.checked ? 'block' : 'none';
+    });
+
+    // Validación de hora
+    const horaInput = document.querySelector('input[name="hora"]');
+    horaInput.min = "07:00";
+    horaInput.max = "22:00";
 });
 
 function inscribirseEventoHandler() {
     const nombre = this.getAttribute('data-nombre');
     const descripcion = this.getAttribute('data-descripcion');
+    const capacidadSpan = document.querySelector(`.contador-inscritos[data-titulo="${nombre}"]`);
+    if (capacidadSpan) {
+        const [actual, max] = capacidadSpan.textContent.split('/').map(Number);
+        if (actual >= max && this.textContent === "Inscribirse") {
+            alert("Ya se ha alcanzado la capacidad máxima para este torneo.");
+            return;
+        }
+    }
     const lista = document.getElementById('lista-inscritos');
     const yaInscrito = [...lista.querySelectorAll('h4')].some(e => e.textContent === nombre);
 
@@ -172,6 +216,7 @@ function inscribirseEventoHandler() {
         lista.appendChild(evento);
         guardarInscripciones();
         alert("Te has inscrito al evento: " + nombre);
+    
 
         // Activar botón de eliminar
         evento.querySelector('.btn-eliminar-inscripcion').addEventListener('click', () => {
@@ -183,6 +228,10 @@ function inscribirseEventoHandler() {
 
         // Cambiar el botón a "Salir"
         this.textContent = "Salir";
+        if (capacidadSpan) {
+            const [actual, max] = capacidadSpan.textContent.split('/').map(Number);
+            capacidadSpan.textContent = `${actual + 1}/${max}`;
+        }
 
     } else {
         // Eliminar de lista
@@ -197,7 +246,14 @@ function inscribirseEventoHandler() {
         // Cambiar el botón a "Inscribirse"
         this.textContent = "Inscribirse";
         alert("Te has desinscrito del evento: " + nombre);
+
+        // Actualizar contador capacidad
+        if (capacidadSpan) {
+            const [actual, max] = capacidadSpan.textContent.split('/').map(Number);
+            capacidadSpan.textContent = `${actual - 1}/${max}`;
+        }
     }
+
 }
 document.getElementById('filtro-categoria').addEventListener('change', function () {
     const categoria = this.value;
@@ -250,4 +306,3 @@ document.addEventListener("click", function(e) {
         }
     }
 });
-
